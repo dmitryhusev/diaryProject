@@ -13,8 +13,8 @@
 <div class='container'>
                 
 	<ul class="nav nav-tabs" role="tablist">
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Add article</a></li>
+        <li><a href="{%url 'index'%}">Home</a></li>
+        <li><a href="{% url 'article:list'%}">Articles</a></li>
         {% if user.is_authenticated %}
         <li class="navbar-right"><a href="{% url 'users:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>        
         {% else %}
