@@ -1,16 +1,21 @@
 {%extends 'base.html'%}
 
 {%block content%}
-<div class="container">
-</br>
+<div class="container"></br>
+<p>
     <a href="{%url 'articles:add_article'%}" class="btn btn-success btn-sm">Add article</a>
-</br>
+</p>
 
     {%for article in articles%}
 
     <div class="panel panel-info">
-            <div class="panel-heading">{{article.title}}</div>
-            <div class="panel-body">{{article.body}}t</div>
+            <div class="panel-heading">
+                {{article.title}}
+                <a href="{%url 'articles:edit_article' article.id%}" class="btn btn-primary btn-xs pull-right">Edit</a>
+                <a href="{%url 'articles:delete_article' article.id%}" class="btn btn-warning btn-xs pull-right">Delete</a>
+                
+            </div>
+            <div class="panel-body">{{article.body}}</div>
     </div>
     {%endfor%}
 </div>
