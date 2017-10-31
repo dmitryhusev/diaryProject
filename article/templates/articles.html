@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="container">
+</br>
+    <a href="{%url 'articles:add_article'%}" class="btn btn-success btn-sm">Add article</a>
+</br>
+
+    {%for article in articles%}
+
+    <div class="panel panel-info">
+            <div class="panel-heading">{{article.title}}</div>
+            <div class="panel-body">{{article.body}}t</div>
+    </div>
+    {%endfor%}
+</div>
+
+{%endblock%}

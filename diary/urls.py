@@ -1,8 +1,4 @@
-"""diary URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.11/topics/http/urls/
-Examples:
+"""
 Function views
     1. Add an import:  from my_app import views
     2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
@@ -20,7 +16,7 @@ from .views import index
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include('user.urls', namespace = 'users')),
-    url(r'^article/', include('article.urls', namespace = 'article')),
+    url(r'^article/', include('article.urls', namespace = 'articles')),
     url(r'^$', index, name = 'index'),
     
 ]
