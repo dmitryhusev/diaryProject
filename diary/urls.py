@@ -16,7 +16,7 @@ from .views import index
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include('user.urls', namespace = 'users')),
-    url(r'^article/', include('article.urls', namespace = 'articles')),
+    url(r'^articles/', include('article.urls', namespace = 'articles')),
     url(r'^$', index, name = 'index'),
     
 ]
