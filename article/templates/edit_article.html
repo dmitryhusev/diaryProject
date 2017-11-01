@@ -2,19 +2,10 @@
 {%load bootstrap3%}
 {%block content%}
 <div class="container">
-
         <form action="{%url 'articles:edit_article' art_edit.id%}" method='post'>
-                        {% csrf_token %}
-                        {% bootstrap_form form  %}
-                        
-                
-                <button class="btn btn-success" name="submit">add</button>
-                </form>
-
-
-
-
-
-
-        {%endblock%}
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button class="btn btn-success" name="submit">Save</button>
+        </form>
+{%endblock%}
         

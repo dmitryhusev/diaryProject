@@ -41,3 +41,9 @@ def delete_article(request, article_id):
     art_edit = Article.objects.get(id=article_id)
     art_edit.delete()
     return HttpResponseRedirect(reverse('articles:list'))
+
+def view_article(request, article_id):
+    
+    art_view = Article.objects.get(id=article_id)
+    context = {'title': art_view.title, 'body': art_view.body}
+    return render(request, 'view_article.html', context)
