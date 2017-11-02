@@ -5,7 +5,9 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <p><strong>{{title}}</strong></p>
+            {%if image%}
             <img class="img-responsive pull-right img-rounded" src="{{image.url}}" alt="my_image" width="304" height="236" >
+            {%endif%}
             {{body}}
 
         </div>       
