@@ -16,7 +16,7 @@ def add_article(request):
     if request.method != 'POST':
         form = ArticleForm()
     else:
-        form = ArticleForm(request.POST)
+        form = ArticleForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
         return HttpResponseRedirect(reverse('articles:list'))
@@ -29,7 +29,7 @@ def edit_article(request, article_id):
     if request.method != 'POST':
         form = ArticleForm(instance = art_edit)
     else:
-        form = ArticleForm(instance = art_edit, data=request.POST)
+        form = ArticleForm(instance = art_edit, data=request.POST, files=request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('articles:list'))
@@ -45,5 +45,5 @@ def delete_article(request, article_id):
 def view_article(request, article_id):
     
     art_view = Article.objects.get(id=article_id)
-    context = {'title': art_view.title, 'body': art_view.body}
+    context = {'title': art_view.title, 'body': art_view.body, 'image': art_view.image}
     return render(request, 'view_article.html', context)
