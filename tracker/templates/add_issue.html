@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{%load bootstrap3%}
+{%block content%}
+<div class="container">
+    <form action="{%url 'tracker:add_issue'%}" method='post' >
+        <div class="form-group">
+            {% csrf_token %}
+            {% bootstrap_form form  %}
+            <label for="sel1">Assigned: <label id = 'user' > </label></label>
+            
+            <select class="form-control" id="select" >
+            <option class="input-md">-Select-</option>
+        {%for user in users%}
+        <option class="input-sm">{{user}}</option>
+        {%endfor%}
+            </select><br>
+            <button class="btn btn-success" name="submit">Add</button>
+            <a href="{%url 'tracker:issues'%}" class="btn btn-primary" name="exit">Exit</a>
+        </form>
+                <script>
+        $(document).ready(function(){
+            $('#select').on('change',function(){
+            $('#id_assignee').val($(this).val());
+           });
+           });
+   </script>
+
+</div>
+        {%endblock%}
+        

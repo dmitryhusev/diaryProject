@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%load bootstrap3%}
+{%block content%}
+<br>
+<div class="container">
+
+<p>
+    <a href="{%url 'tracker:add_issue'%}" class="btn btn-success btn-sm">Create Issue</a>
+</p>
+                            
+
+    <ul class="list-group">
+            {%for issue in issues%}
+        <li class="list-group-item">{{issue}} 
+        <a href="{%url 'tracker:edit_issue' issue.id%}" class="btn btn-primary btn-xs pull-right">View</a>
+                        
+        </li>
+        {%endfor%}
+        </ul>
+</div>
+{%endblock%}
+
+
