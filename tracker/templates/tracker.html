@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%load bootstrap3%}
+{%block content%}
+<div class="container">
+
+
+<form>
+
+<div class="form-group">
+                
+        {% bootstrap_form form  %}
+        
+
+        <label for="sel1">Assignee:<label id = 'user' ></label></label>
+        <select class="form-control" id="select" >
+                <option class="input-sm">-Select-</option>
+                {%for user in users%}
+                <option class="input-sm">{{user}}</option>
+                {%endfor%}
+        </select><br>
+      <button type="submit" name="submit" class="btn btn-primary btn-xs pull-right">Assign</button>
+    </form>
+</div>
+
+
+<script>$(function(){$('#select').on('change',function(){$('#user').html($(this).val());});});</script>
+
+</div>
+{%endblock%}

@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include('user.urls', namespace = 'users')),
     url(r'^articles/', include('article.urls', namespace = 'articles')),
+    url(r'^tracker/', include('tracker.urls', namespace = 'tracker')),
     url(r'^$', index, name = 'index'),
     
 ]

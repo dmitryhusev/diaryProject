@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'user',
     'article',
     'bootstrap3',
+    'tracker',
 ]
 
 MIDDLEWARE = [

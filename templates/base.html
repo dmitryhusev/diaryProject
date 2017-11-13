@@ -19,6 +19,7 @@
 	<ul class="nav nav-tabs" role="tablist">
         <li><a href="{%url 'index'%}">Home</a></li>
         <li><a href="{%url 'articles:list'%}">Articles</a></li>
+        <li><a href="{%url 'tracker:main'%}">Tracker</a></li>
         {% if user.is_authenticated %}
         <li class="navbar-right"><a href="{% url 'users:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
         <li class="navbar-right"><a href="#"><span class="glyphicon glyphicon-user"></span>You are logged as: <strong>{{user.username}}</strong></a></li>
