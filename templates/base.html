@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-{% load staticfiles %}
+{%load staticfiles%}
 
 <html lang="en">
 <head>
@@ -21,7 +21,7 @@
         <li><a href="{%url 'articles:list'%}">Articles</a></li>
         <li><a href="{%url 'tracker:main'%}">Tracker</a></li>
         {% if user.is_authenticated %}
-        <li class="navbar-right"><a href="{% url 'users:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+        <li class="navbar-right"><a href="{%url 'users:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
         <li class="navbar-right"><a href="#"><span class="glyphicon glyphicon-user"></span>You are logged as: <strong>{{user.username}}</strong></a></li>
         {% else %}
         <li class="navbar-right"><a href="{% url 'users:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>        
