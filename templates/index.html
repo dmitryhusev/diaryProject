@@ -1,15 +1,50 @@
 {%extends 'base.html'%}
+{%load bootstrap3%}
 
 {%block content%}
-<style>.jumbotron {
-        background-color:bg-info !important; 
-    }</style>
 </br>
-<div class="container" >
-     <div class="panel panel-info">
-       <div class="panel-heading"><h3 class="text-center">hi there! </h3></div>
-         <div class="panel-body"><h4 class="text-center">some text</h4></div>
+
+
+<div class="container">
+<h1>Dashboard</h1>
+    <div class="row">
+        <div class="col-sm-6" >
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    Recent articles <div class="pull-right">Added</div>
+                </div>
+                    <div class="panel-body">
+                        {%for article in articles%}
+                            <p>
+                                <a href="{%url 'articles:view_article' article.id%}">{{article}}</a>
+                                <span class="label label-primary pull-right">
+                                {{article.date_added|date:'M d, Y H:i'}}
+                                </span>
+                            </p>
+                        {%endfor%}
+                    </div>
+            </div>
+        </div>
+        <div class="col-sm-6" >
+            <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        Recent issues <div class="pull-right">Added</div>
+                    </div>
+                        <div class="panel-body">
+                            {%for issue in issues%}
+                            <p>
+                                <a href="{%url 'tracker:edit_issue' issue.id%}">{{issue}}</a>
+                                <span class="label label-primary pull-right">
+                                {{issue.date_added|date:'M d, Y H:i'}}
+                                </span>
+                            </p>
+                            {%endfor%}
+                        </div>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 {%endblock%}
