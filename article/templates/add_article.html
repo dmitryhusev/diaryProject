@@ -8,6 +8,7 @@
                         {% csrf_token %}
                         {% bootstrap_form form  %}
                         <button class="btn btn-success" name="submit">add</button>
+                        <a href="{%url 'articles:list' %}" class="btn btn-warning">Cancel</a>        
                 </form>
 
 </div>
