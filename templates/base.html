@@ -18,7 +18,7 @@
                 
 	<ul class="nav nav-tabs" role="tablist">
         <li><a href="{%url 'index'%}">Home</a></li>
-        <li><a href="{%url 'articles:list'%}">Articles</a></li>
+        <li><a href="{%url 'articles:list'%}">Wiki</a></li>
         <li><a href="{%url 'tracker:issues'%}">Tracker</a></li>
         {% if user.is_authenticated %}
         <li class="navbar-right"><a href="{%url 'users:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
