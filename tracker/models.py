@@ -11,4 +11,4 @@ class Tracker(models.Model):
 
 
     def __str__(self):
-        return '%s %s' %(self.title, self.assignee)
+        return '%s' %(self.title)
