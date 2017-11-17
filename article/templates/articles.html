@@ -1,6 +1,10 @@
 {%extends 'base.html'%}
 
+
+
 {%block content%}
+
+
 <div class="container"></br>
 <p>
     <a href="{%url 'articles:add_article'%}" class="btn btn-success btn-sm">Add article</a>
@@ -12,14 +16,27 @@
             <div class="panel-heading">
                 <a href="{%url 'articles:view_article' article.id%}" class="btn btn-primary btn-xs">View</a>
                 <a href="{%url 'articles:edit_article' article.id%}" class="btn btn-primary btn-xs">Edit</a>
-                <a href="{%url 'articles:delete_article' article.id%}" class="btn btn-warning btn-xs pull-right">Delete</a>                
+                <button class="btn btn-warning btn-xs pull-right" onclick="deleteItem({{article.id}})">Delete</button>               
             </div>
-            <div class="panel-body">
+    <div class="panel-body">
                 <p><strong>{{article.title}}</strong></p>
                    {{article.body}}
-            </div>
     </div>
+    </div>
+
     {%endfor%}
+
+    <script>
+    function deleteItem(id) {
+    bootbox.confirm("Are you sure?", function(result) {
+        if (result) {
+            document.location.href = "/articles/delete/article/" + id + "/"
+        }
+    });
+};
+
+    </script>
+    
 </div>
 
 {%endblock%}
