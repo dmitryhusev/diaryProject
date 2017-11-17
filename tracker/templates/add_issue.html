@@ -11,7 +11,7 @@
             <select class="form-control" id="select" >
             <option class="input-md">-Select-</option>
         {%for user in users%}
-        <option class="input-sm">{{user}}</option>
+        <option class="input-sm">{{user.email}}</option>
         {%endfor%}
             </select><br>
             <button class="btn btn-success" name="submit">Add</button>
