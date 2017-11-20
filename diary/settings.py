@@ -127,3 +127,12 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# sending email
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "dimtri.gusev@gmail.com"
+EMAIL_HOST_PASSWORD = 'Lvbnhbq21'
+EMAIL_PORT = 578
+EMAIL_USE_SSL = True
+
