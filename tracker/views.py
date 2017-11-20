@@ -54,7 +54,7 @@ def edit_issue(request, issue_id):
             form.save()
             current_user = request.user
             message = '%s %s' %('Changed by:', current_user)
-            send_mail(title, ticket_name + '\n' + message, settings.EMAIL_HOST_USER, [send_to], fail_silently=False)
+            send_mail(title, ticket_name + '\n' + '\n' + message, settings.EMAIL_HOST_USER, [send_to], fail_silently=False)
             return HttpResponseRedirect(reverse('tracker:edit_issue', args=[issue_id]))
     context = {'form': form, 'users': user_list, 'issue_id': issue_id}
     return render(request, 'edit_issue.html', context)
