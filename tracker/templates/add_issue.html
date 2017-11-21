@@ -8,8 +8,8 @@
             {% bootstrap_form form  %}
             <label for="sel1">Assigned: <label id = 'user' > </label></label>
             
-            <select class="form-control" id="select" >
-            <option class="input-md">-Select-</option>
+            <select class="form-control" id="select" style="width: auto;">
+            <option class="input-md" >-Select-</option>
         {%for user in users%}
         <option class="input-sm">{{user.email}}</option>
         {%endfor%}
