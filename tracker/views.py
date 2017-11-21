@@ -6,6 +6,7 @@ from .forms import AssignForm
 from .models import Tracker
 from django.conf import settings
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 def main(request):
 
@@ -20,7 +21,7 @@ def issues(request):
     context = {'issues': issues}
     return render(request, 'issues.html', context)
 
-
+@login_required
 def add_issue(request):
 
     user_list = User.objects.all()

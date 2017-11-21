@@ -1,21 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-#from django.core.urlresolvers import reverse
 from django.urls import reverse
 from .models import Article
 from .forms import ArticleForm
+from django.contrib.auth.decorators import login_required
 
 def article_list(request):
          
     if 'q' in request.GET:
         q = request.GET['q']
-        data = Article.objects.filter(title__icontains=q)
+        data = Article.objects.filter(title__icontains=q )
     else:
         data = Article.objects.all()
     context = {'articles': data}
     return render(request, 'articles.html', context)
 
-
+@login_required
 def add_article(request):
 
     if request.method != 'POST':
