@@ -6,7 +6,7 @@ def index(request):
 
     query = request.GET.get('q')
     if query:
-        articles = Article.objects.filter(title__icontains = query)
+        articles = Article.objects.filter(title__icontains=query)
     else:
         articles = Article.objects.all()
     issues = Tracker.objects.all()

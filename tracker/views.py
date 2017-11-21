@@ -7,19 +7,39 @@ from .models import Tracker
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 def main(request):
 
     user_list = User.objects.all()
-    form =AssignForm
+    form = AssignForm
     context = {'users': user_list, 'form': form}
     return render(request, 'tracker.html', context)
 
+
 def issues(request):
 
-    issues = Tracker.objects.all()
-    context = {'issues': issues}
+    if 'q' in request.GET:
+        q = request.GET['q']
+        data = Tracker.objects.filter(title__icontains=q )
+    else:
+        data = Tracker.objects.all()
+    paginator = Paginator(data, 15)
+    page = request.GET.get('page')
+
+    try:
+        issue = paginator.page(page)
+
+    except PageNotAnInteger:
+        issue = paginator.page(1)
+
+    except EmptyPage:
+        issue = paginator.page(paginator.num_pages)
+
+    context = {'issues': issue}
     return render(request, 'issues.html', context)
+
 
 @login_required
 def add_issue(request):
@@ -30,24 +50,26 @@ def add_issue(request):
     else:
         form = AssignForm(data=request.POST)
         if form.is_valid():
-            title = form.cleaned_data.get('title')
-            message = form.cleaned_data.get('description') 
+            title = 'DO NOT REPLY'
+            ticket_name = form.cleaned_data.get('title').upper()
             send_to = form.cleaned_data.get('assignee')
-            from_logged = User.username
             form.save()
-            send_mail(title, message, settings.EMAIL_HOST_USER, [send_to], fail_silently=False)
+            current_user = request.user
+            message = '%s %s' %('Changed by:', current_user)
+            send_mail(title, ticket_name + '\n' + '\n' + message, settings.EMAIL_HOST_USER, [send_to], fail_silently=False)
             return HttpResponseRedirect(reverse('tracker:issues'))
     context = {'form': form, 'users': user_list, }
     return render(request, 'add_issue.html', context)
+
 
 def edit_issue(request, issue_id):
 
     user_list = User.objects.all()
     issue = Tracker.objects.get(id=issue_id)
     if request.method != 'POST':
-        form = AssignForm(instance = issue)
+        form = AssignForm(instance=issue)
     else:
-        form = AssignForm(instance = issue, data=request.POST)
+        form = AssignForm(instance=issue, data=request.POST)
         if form.is_valid():
             title = 'DO NOT REPLY'
             ticket_name = form.cleaned_data.get('title').upper()

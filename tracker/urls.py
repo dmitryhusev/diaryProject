@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import main,issues, edit_issue, add_issue
+from .views import main, issues, edit_issue, add_issue
 
 urlpatterns = [
     url(r'^tracker/$', main, name='main'),
