@@ -8,6 +8,10 @@
 <div class="container"></br>
 <p>
     <a href="{%url 'articles:add_article'%}" class="btn btn-success btn-sm">Add article</a>
+    <form action="" method="GET">
+        <input type="text" name="q" placeholder="search" style="border-radius: 4px;height:30px"/>
+        <input type="submit" class="btn btn-sm btn-primary" value="search" /input>
+    </form>
 </p>
 
     {%for article in articles%}

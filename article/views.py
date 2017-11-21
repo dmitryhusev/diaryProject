@@ -6,10 +6,15 @@ from .models import Article
 from .forms import ArticleForm
 
 def article_list(request):
-
-    data = Article.objects.all()
+         
+    if 'q' in request.GET:
+        q = request.GET['q']
+        data = Article.objects.filter(title__icontains=q)
+    else:
+        data = Article.objects.all()
     context = {'articles': data}
     return render(request, 'articles.html', context)
+
 
 def add_article(request):
 
@@ -47,3 +52,4 @@ def view_article(request, article_id):
     art_view = Article.objects.get(id=article_id)
     context = {'title': art_view.title, 'body': art_view.body, 'image': art_view.image}
     return render(request, 'view_article.html', context)
+
