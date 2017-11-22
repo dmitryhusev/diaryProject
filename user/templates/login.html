@@ -2,19 +2,36 @@
 {%block content%}
 <div class="container">
     <br>
-<div class= 'col-sm-6 col-sm-offset-3'>
+    {% if form.errors %}
+    <div class="col-sm-6 col-sm-offset-3">
+    <div class="alert alert-danger alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 
-<div class="alert alert-info">
-  <p class="text-center">Enter your name and password to log in</p>
-  </div>
-</div>
-{% if form.errors %}
-<div class="col-sm-6 col-sm-offset-3">
-<div class="alert alert-danger alert-dismissable">
-<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-{{form.errors}}</div>
-</div>
+    {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
 {% endif %}
+
+</div>
+    </div>
+    {% endif %}
+
+<div class= 'col-sm-6 col-sm-offset-3'>
+    <div class="alert alert-info">
+    <p class="text-center">Enter your name and password to log in</p>
+    </div>
+</div>
+
     
     <div class= 'col-sm-6 col-sm-offset-3'>
   
