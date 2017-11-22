@@ -25,7 +25,7 @@ def issues(request):
         data = Tracker.objects.filter(title__icontains=q )
     else:
         data = Tracker.objects.all()
-    paginator = Paginator(data, 15)
+    paginator = Paginator(data, 10)
     page = request.GET.get('page')
 
     try:
