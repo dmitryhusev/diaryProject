@@ -136,3 +136,4 @@ EMAIL_HOST_USER = 'dimtri.gusev@gmail.com'
 EMAIL_HOST_PASSWORD = 'Lvbnhbq21'
 
 LOGIN_URL = '/user/login/'
+LOGIN_REDIRECT_URL = '/'

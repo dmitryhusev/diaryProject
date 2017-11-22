@@ -22,8 +22,16 @@
         <li><a href="{%url 'articles:list'%}">Wiki</a></li>
         <li><a href="{%url 'tracker:issues'%}">Tracker</a></li>
         {% if user.is_authenticated %}
-        <li class="navbar-right"><a href="{%url 'users:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-        <li class="navbar-right"><a href="#"><span class="glyphicon glyphicon-user"></span>You are logged as: <strong>{{user.username}}</strong></a></li>
+		
+			<li class="dropdown navbar-right">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{user.username}}
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="#"><span class="glyphicon glyphicon-user text-primary" ></span>&nbsp;Profile</a></li>
+			<li><a href="{%url 'users:logout' %}"><span class="glyphicon glyphicon-log-out text-primary"></span>&nbsp;Logout</a></li>
+			</ul>
+			</li>
+			
         {% else %}
         <li class="navbar-right"><a href="{% url 'users:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>        
         <li class="navbar-right"><a href="{% url 'users:register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
