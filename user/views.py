@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 def logout_view(request):
 
@@ -22,3 +23,7 @@ def register(request):
             return HttpResponseRedirect(reverse('index'))
     context = {'form': form}
     return render(request, 'register.html', context)
+
+def profile(request):
+    
+    return render(request, 'profile.html')

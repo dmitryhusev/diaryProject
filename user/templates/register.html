@@ -3,6 +3,14 @@
 {%block content%}
 <div class="container">
     <br>
+    {% if form.errors %}
+    <div class="col-sm-6 col-sm-offset-3">
+    <div class="alert alert-danger alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{form.errors}}</div>
+    </div>
+    {% endif %}
+
         <div class= 'col-sm-6 col-sm-offset-3'>
             <div class="alert alert-info ">
             <p class="text-center">Enter your name and password to register</p>
