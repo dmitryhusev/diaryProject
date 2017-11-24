@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .forms import ProfileForm
 
 def logout_view(request):
 
@@ -27,3 +28,15 @@ def register(request):
 def profile(request):
     
     return render(request, 'profile.html')
+
+def edit_profile(request):
+    
+    current_user = request.user
+    if request.method == 'POST':
+        form = ProfileForm(instance = current_user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('users:profile'))
+    else:
+        form = ProfileForm(instance = current_user)
+    return render(request, 'edit_profile.html', {'form': form})

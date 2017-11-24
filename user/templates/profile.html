@@ -2,18 +2,20 @@
 {%load bootstrap3%}
 {%block content%}
 <div class="container">
-    
+ <br>   
 <div class="row">
     <div class="col-md-4">
             
-        <h1>User Profile</h1>
-        <p>User first name: {{user.first_name}} </p>
-        <p>User last name: {{user.last_name}} </p> 
-        <p>Email: {{user.email}}</p> 
+<div class="well"><h1>User Profile</h1>
+    <h5><span class="label label-info ">User first name:</span> {{user.first_name}} </h5>
+    <h5><span class="label label-info">User last name:</span> {{user.last_name}} </h5> 
+    <h5><span class="label label-info">Email:</span> {{user.email}}</h5> 
+
+<a href="{%url 'users:edit_profile'%}">Edit profile</a>
 
 
-
-    </div>
+</div>
+</div>
 </div>
 </div>
 {%endblock%}

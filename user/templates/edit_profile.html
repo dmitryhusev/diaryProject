@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%load bootstrap3%}
+
+
+
+{%block content%}
+<div class="container"></br>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="well">    
+<form action="{%url 'users:edit_profile'%}" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    
+<input type="submit" class="btn btn-primary btn-sm" value="submit"/>  
+<a href="{%url 'users:profile'%}" class="btn btn-warning btn-sm">back</a>
+
+</form>
+</div>
+</div>
+</div>
+
+</div>
+{%endblock%}
