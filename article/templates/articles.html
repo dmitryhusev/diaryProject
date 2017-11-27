@@ -1,48 +1,72 @@
 {%extends 'base.html'%}
-
-
-
+{%block title%}
+Articles
+{%endblock%}
 {%block content%}
 
-
 <div class="container"></br>
-<p>
-    <a href="{%url 'articles:add_article'%}" class="btn btn-success btn-sm">Add article</a>
-    <form action="" method="GET" class="form-inline">
-            <div class="form-group">
-        <input class="form-control" type="text" name="q" placeholder="search" />
-            </div>
-        <input type="submit" class="btn btn-primary" value="search" /input>
-    </form>
-</p>
 
-    {%for article in articles%}
+<div class="row ">
+    <div class="col-sm-4 ">
+            <div class="well">
 
-    <div class="panel panel-info">
-            <div class="panel-heading">
-                <a href="{%url 'articles:view_article' article.id%}" class="btn btn-primary btn-xs">View</a>
-                <a href="{%url 'articles:edit_article' article.id%}" class="btn btn-primary btn-xs">Edit</a>
-                <button class="btn btn-warning btn-xs pull-right" onclick="deleteItem({{article.id}})">Delete</button>               
-            </div>
-    <div class="panel-body">
-                <p><strong>{{article.title}}</strong></p>
-                   {{article.body}}
+
+<strong>Categories</strong> <a href="{%url 'articles:add_category'%}" class="pull-right btn btn-primary btn-xs">Add category</a><br><br>
+
+ <div class="list-group">
+{%for category in categories%}
+ <a href="#" class="list-group-item">{{category.title}}<span class="glyphicon glyphicon-folder-open pull-right"></span></a>
+ {%endfor%}
+ </div>
+
+
+
+
     </div>
-    </div>
-
-    {%endfor%}
-
-    <script>
-    function deleteItem(id) {
-    bootbox.confirm("Are you sure?", function(result) {
-        if (result) {
-            document.location.href = "/articles/delete/article/" + id + "/"
-        }
-    });
-};
-
-    </script>
-    
 </div>
+  <div class="col-sm-8">
+        <div class="well">
+<p>
+        <a href="{%url 'articles:add_article'%}" class="btn btn-primary btn-xs">Add article</a>
+        
+</p>
+               
+<form action="" method="GET">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+</form>
+<br>
 
+
+<ul class="list-group">
+        {%for article in articles%}
+        
+   <li class="list-group-item"><strong>{{article.title}}</strong>
+   {{article.body}}
+   <span class="label label-info pull-right">{{article.category}}</span></br>
+   <a href="{%url 'articles:view_article' article.id%}" class="btn btn-primary btn-xs ">View</a>
+   
+   <button class="btn btn-warning btn-xs " onclick="deleteItem({{article.id}})">Delete</button>               
+   </li>
+   {%endfor%}
+</ul>
+     <script>
+     function deleteItem(id) {
+     bootbox.confirm("Are you sure?", function(result) {
+         if (result) {
+             document.location.href = "/articles/delete/article/" + id + "/"
+         }
+     });
+ };
+</script>
+</div>
+</div>
+</div>  
+</div>
 {%endblock%}

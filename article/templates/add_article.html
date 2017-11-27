@@ -1,5 +1,9 @@
 {%extends 'base.html'%}
 {%load bootstrap3%}
+{%block title%}
+Add article
+{%endblock%}
+
 {%block content%}
 <div class="container">
 
@@ -7,8 +11,8 @@
                 <div class="form-group">
                         {% csrf_token %}
                         {% bootstrap_form form  %}
-                        <button class="btn btn-success" name="submit">add</button>
-                        <a href="{%url 'articles:list' %}" class="btn btn-warning">Cancel</a>        
+                        <button class=" btn-xs btn btn-success" name="submit">add</button>
+                        <a href="{%url 'articles:list' %}" class=" btn-xs btn btn-warning">Cancel</a>        
                 </form>
 
 </div>

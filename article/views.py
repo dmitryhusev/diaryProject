@@ -1,18 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Article
-from .forms import ArticleForm
+from .models import Article, ArticleCategory
+from .forms import ArticleForm, ArticleCategoryForm
 from django.contrib.auth.decorators import login_required
 
 def article_list(request):
          
     if 'q' in request.GET:
         q = request.GET['q']
-        data = Article.objects.filter(title__icontains=q )
+        data = Article.objects.filter(title__icontains=q)
+        categories = ArticleCategory.objects.order_by('title')
     else:
-        data = Article.objects.all()
-    context = {'articles': data}
+        data = Article.objects.order_by('-date_added')
+        categories = ArticleCategory.objects.order_by('title')
+
+    context = {'articles': data, 'categories': categories}
     return render(request, 'articles.html', context)
 
 @login_required
@@ -49,7 +52,25 @@ def delete_article(request, article_id):
 
 def view_article(request, article_id):
     
+    nomer = article_id
     art_view = Article.objects.get(id=article_id)
-    context = {'title': art_view.title, 'body': art_view.body, 'image': art_view.image}
+    context = {'title': art_view.title,
+                'body': art_view.body,
+                'image': art_view.image,
+                'article_id': article_id}
     return render(request, 'view_article.html', context)
 
+
+def add_category(request):
+
+    if request.method == 'POST':
+        form = ArticleCategoryForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.title = instance.title.capitalize() 
+            instance.save()
+        return HttpResponseRedirect(reverse('articles:list'))
+    else:
+        form = ArticleCategoryForm()
+    context = {'form': form}
+    return render(request, 'add_category.html', context)

@@ -1,12 +1,14 @@
 {%extends 'base.html'%}
 {%load bootstrap3%}
+{%block title%}
+User profile
+{%endblock%}
 {%block content%}
 <div class="container">
  <br>   
 <div class="row">
-    <div class="col-md-4">
-            
-<div class="well"><h1>User Profile</h1>
+<div class="col-md-4">
+<div class="well"><h2>User Profile</h2>
     <h5><span class="label label-info ">User first name:</span> {{user.first_name}} </h5>
     <h5><span class="label label-info">User last name:</span> {{user.last_name}} </h5> 
     <h5><span class="label label-info">Email:</span> {{user.email}}</h5> 

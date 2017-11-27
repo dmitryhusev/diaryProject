@@ -1,12 +1,17 @@
 {%extends 'base.html'%}
 {%load bootstrap3%}
+{%block title%}
+Edit article
+{%endblock%}
 {%block content%}
 <div class="container">
         <form action="{%url 'articles:edit_article' art_edit.id%}" method='post' enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <button class="btn btn-success" name="submit">Save</button>
-        <a href="{%url 'articles:list' %}" class="btn btn-warning">Cancel</a>        
+        <button class="btn btn-success btn-xs" name="submit">Save</button>
+        <a href="{%url 'articles:list' %}" class="btn btn-warning btn-xs">Cancel</a>        
         </form>
+
+   
 {%endblock%}
         

@@ -5,6 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .forms import ProfileForm
+from django.contrib.auth.decorators import login_required
 
 def logout_view(request):
 
@@ -29,6 +30,7 @@ def profile(request):
     
     return render(request, 'profile.html')
 
+@login_required
 def edit_profile(request):
     
     current_user = request.user

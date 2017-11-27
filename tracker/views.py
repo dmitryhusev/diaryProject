@@ -10,14 +10,6 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
-def main(request):
-
-    user_list = User.objects.all()
-    form = AssignForm
-    context = {'users': user_list, 'form': form}
-    return render(request, 'tracker.html', context)
-
-
 def issues(request):
 
     if 'q' in request.GET:
