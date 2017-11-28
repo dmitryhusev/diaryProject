@@ -15,16 +15,16 @@ Articles
 
  <div class="list-group">
 {%for category in categories%}
- <a href="#" class="list-group-item">{{category.title}}<span class="glyphicon glyphicon-folder-open pull-right"></span></a>
+ <a href="{%url 'articles:edit_category' category.id%}" class="list-group-item">{{category.title}}<span class="glyphicon glyphicon-folder-open pull-right"></span></a>
  {%endfor%}
  </div>
 
-
-
-
-    </div>
 </div>
-  <div class="col-sm-8">
+</div>
+
+
+
+<div class="col-sm-8">
         <div class="well">
 <p>
         <a href="{%url 'articles:add_article'%}" class="btn btn-primary btn-xs">Add article</a>

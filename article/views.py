@@ -52,7 +52,6 @@ def delete_article(request, article_id):
 
 def view_article(request, article_id):
     
-    nomer = article_id
     art_view = Article.objects.get(id=article_id)
     context = {'title': art_view.title,
                 'body': art_view.body,
@@ -74,3 +73,25 @@ def add_category(request):
         form = ArticleCategoryForm()
     context = {'form': form}
     return render(request, 'add_category.html', context)
+
+def edit_category(request, category_id):
+
+    instance = ArticleCategory.objects.get(id=category_id)
+    if request.method == 'POST':
+        form = ArticleCategoryForm(instance = instance, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('articles:list'))
+    else:
+        form = ArticleCategoryForm(instance=instance)
+    category_articles = Article.objects.filter(category=category_id)
+    context = {'form':form, 'category_id':category_id, 'articles':category_articles}
+    return render(request, 'edit_category.html', context)
+
+
+def delete_category(request, category_id):
+
+    cat_delete = ArticleCategory.objects.get(id=category_id)
+    cat_delete.delete()
+    return HttpResponseRedirect(reverse('articles:list'))
+

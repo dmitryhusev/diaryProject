@@ -10,7 +10,7 @@ Add category
         <div class="row">
             <div class="col-md-4">
                 <div class="well">    
-    <form action="/articles/add/category/" method="post">
+    <form action="{%url 'articles:add_category'%}" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
         
