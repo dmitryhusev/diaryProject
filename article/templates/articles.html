@@ -52,19 +52,22 @@ Articles
    <span class="label label-info pull-right">{{article.category}}</span></br>
    <a href="{%url 'articles:view_article' article.id%}" class="btn btn-primary btn-xs ">View</a>
    
-   <button class="btn btn-warning btn-xs " onclick="deleteItem({{article.id}})">Delete</button>               
+   <button class="btn btn-warning btn-xs " onclick="deleteItem({{article.id}})">Delete</button>
+   
+   <script>
+                function deleteItem(id) {
+                bootbox.confirm("Are you sure?", function(result) {
+                    if (result) {
+                        document.location.href = "/articles/delete/article/" + id + "/";
+                    }
+                });
+            };
+           </script>
+
    </li>
    {%endfor%}
 </ul>
-     <script>
-     function deleteItem(id) {
-     bootbox.confirm("Are you sure?", function(result) {
-         if (result) {
-             document.location.href = "/articles/delete/article/" + id + "/"
-         }
-     });
- };
-</script>
+ 
 </div>
 </div>
 </div>  

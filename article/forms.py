@@ -20,3 +20,4 @@ class ArticleCategoryForm(forms.ModelForm):
     class Meta:
         model = ArticleCategory
         fields = ['title']
+        labels = {'title': 'Category name'}

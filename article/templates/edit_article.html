@@ -1,17 +1,34 @@
 {%extends 'base.html'%}
 {%load bootstrap3%}
+
 {%block title%}
 Edit article
 {%endblock%}
 {%block content%}
+
+<style>
+#id_image {
+display: none;
+}
+</style>
+
 <div class="container">
         <form action="{%url 'articles:edit_article' art_edit.id%}" method='post' enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_form form %}
+<br>        
         <button class="btn btn-success btn-xs" name="submit">Save</button>
-        <a href="{%url 'articles:list' %}" class="btn btn-warning btn-xs">Cancel</a>        
+        <a href="{%url 'articles:list' %}" class="btn btn-warning btn-xs">Cancel</a> 
+        
         </form>
+        
+<br>
 
-   
+<button class="btn btn-primary btn-xs"  onclick="document.getElementById('id_image').click();">Add image</button>
+
+
+
+
+
 {%endblock%}
         
