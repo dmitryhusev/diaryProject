@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'article',
     'bootstrap3',
     'tracker',
+    'webapi',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

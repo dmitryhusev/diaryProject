@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^user/', include('user.urls', namespace = 'users')),
     url(r'^articles/', include('article.urls', namespace = 'articles')),
     url(r'^tracker/', include('tracker.urls', namespace = 'tracker')),
+    url(r'^webapi/', include('webapi.urls', namespace = 'webapi')),
     url(r'^$', index, name = 'index'),
     
 ]
