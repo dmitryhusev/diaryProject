@@ -1,6 +1,6 @@
 {%extends 'base.html'%}
 {%load bootstrap3%}
-
+{%load staticfiles%}
 {%block title%}
 Category
 {%endblock%}
@@ -8,26 +8,25 @@ Category
 {%block content%}
 <div class="container"><br/>
 <div class="row">
-        <div class="col-md-4">
-            <div class="well">    
+<div class="col-md-4">
+<div class="well">    
+        
 <form action="{%url 'articles:edit_category' category_id%}" method='post'>
     {% csrf_token %}
     {% bootstrap_form form %}
-    
-<input type="submit" class="btn btn-primary btn-xs" value="Rename"/>  
-<button class="btn btn-warning btn-xs dlt ">Delete</button>               
+    <input type="submit" class="btn btn-primary btn-xs" value="Rename"/>  
+    <button class="btn btn-warning btn-xs dlt ">Delete</button>               
 </form>
-
 <script>
-$('.dlt').click(function(e){
-e.preventDefault();   
- bootbox.confirm("Are you sure? Current category and all related articles will be deleted", function(result) {
-     if (result) {
-         document.location.href = "{%url 'articles:delete_category' category_id%}";
-     }
- });
-});
-</script>
+    $('.dlt').click(function(e){
+        e.preventDefault();   
+         bootbox.confirm("Are you sure? Current category and all related articles will be deleted", function(result) {
+             if (result) {
+                 document.location.href = "{%url 'articles:delete_category' category_id%}";
+            }
+        });
+    });    
+</script> 
 
 </div>
 </div>
@@ -52,29 +51,20 @@ e.preventDefault();
 <ul class="list-group">
     {%if articles%}
     {%for article in articles%}
-    
-<li class="list-group-item"><strong>{{article.title}}</strong>
-{{article.body}}
-<span class="label label-info pull-right">{{article.category}}</span></br>
-<a href="{%url 'articles:view_article' article.id%}" class="btn btn-primary btn-xs ">View</a>
-
-<button class="btn btn-warning btn-xs " onclick="deleteItem({{article.id}})">Delete</button>               
-</li>
-{%endfor%}
-{%else%}
-Category does not have any articles
-{%endif%}
+    <li class="list-group-item"><strong>{{article.title}}</strong>
+    {{article.body|truncatewords:50}}
+    <span class="label label-info pull-right">{{article.category}}</span></br>
+    <a href="{%url 'articles:view_article' article.id%}" class="btn btn-primary btn-xs ">View</a>
+    <button class="btn btn-warning btn-xs " onclick="deleteItem({{article.id}})">Delete</button>               
+    </li>
+    {%endfor%}
+    {%else%}
+    Category does not have any articles
+    {%endif%}
 </ul>
- <script>
- function deleteItem(id) {
- bootbox.confirm("Are you sure?", function(result) {
-     if (result) {
-         document.location.href = "/articles/delete/article/" + id + "/"
-     }
- });
-};
-</script>
+
 </div>
 </div>
 </div>
+<script src="{%static 'article/delete_article.js'%}"></script>
 {%endblock%}

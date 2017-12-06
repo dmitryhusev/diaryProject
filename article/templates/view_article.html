@@ -1,25 +1,36 @@
 {%extends 'base.html'%}
+{%load staticfiles%}
+
+
 {%block title%}
 View article
 {%endblock%}
 
 {%block content%}
 <div class="container"><br>
+<div class="row ">
+<div class="col-sm-8 ">
     <div class="panel panel-default">
-            <br>&nbsp;&nbsp;
-            <a href="{%url 'articles:list' %}" class="btn btn-primary btn-xs">Back</a>
-            <a href="{%url 'articles:edit_article' article_id %}" class="btn btn-primary btn-xs">Edit</a>
-            <div class="panel-body">
-            <p><strong>{{title}}</strong></p>
-            {%if image%}
-            <img class="img-responsive pull-right img-rounded" src="{{image.url}}" alt="my_image" width="304" height="236" >
-            {%endif%}
-            {{body}}
-
-        </div>       
-    </div>       
+    <br>&nbsp;&nbsp;
+    <a href="{%url 'articles:list' %}" class="btn btn-primary btn-xs">Back</a>
+    <a href="{%url 'articles:edit_article' article_id %}" class="btn btn-primary btn-xs">Edit</a>
+    <div class="panel-body">
+    <p><strong>{{title}}</strong></p>
+    {{body}}
+    </div>
+    </div>
+</div>
+<div class="col-sm-4">
+    <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+    </div>
+    <img id="myImg" class="img-responsive img-rounded" src="{{image.url}}" alt="my_image" width="360" height="230" />
+</div>
+</div>       
+    <script src="{%static 'article/zoom_img.js'%}"></script>  
+    <link rel="stylesheet" href="{%static 'article/zoom_img.css'%}">
 </div>       
 
-{%endblock%}
-        
-
+{%endblock%}  
