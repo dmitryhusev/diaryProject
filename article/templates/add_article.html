@@ -11,8 +11,8 @@ Add article
                 <div class="form-group">
                         {% csrf_token %}
                         {% bootstrap_form form  %}
-                        <button class=" btn-xs btn btn-success" name="submit">add</button>
-                        <a href="{%url 'articles:list' %}" class=" btn-xs btn btn-warning">Cancel</a>        
+                        <button class=" btn-sm btn btn-success" name="submit">Add</button>
+                        <a href="{%url 'articles:list' %}" class=" btn-sm btn btn-warning">Cancel</a>        
                 </form>
 
 </div>

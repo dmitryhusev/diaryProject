@@ -16,7 +16,7 @@ def issues(request):
         q = request.GET['q']
         data = Tracker.objects.filter(title__icontains=q )
     else:
-        data = Tracker.objects.all()
+        data = Tracker.objects.order_by('-date_added')
     paginator = Paginator(data, 10)
     page = request.GET.get('page')
 
@@ -33,7 +33,6 @@ def issues(request):
     return render(request, 'issues.html', context)
 
 
-@login_required
 def add_issue(request):
 
     user_list = User.objects.all()

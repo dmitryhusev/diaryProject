@@ -16,8 +16,8 @@ Edit article
     {% csrf_token %}
     {% bootstrap_form form %}
     <br>        
-    <button class="btn btn-success btn-xs" name="submit">Save</button>
-    <a href="{%url 'articles:list' %}" class="btn btn-warning btn-xs">Cancel</a> 
+    <button class="btn btn-success btn-sm" name="submit">Save</button>
+    <a href="{%url 'articles:list' %}" class="btn btn-warning btn-sm">Cancel</a> 
     </form>
 </div>
 
@@ -27,7 +27,9 @@ Edit article
     <img class="modal-content" id="img01">
     <div id="caption"></div>
     </div>
+    {%if art_edit.image%}
     <img id="myImg" class="img-responsive img-rounded" src="{{art_edit.image.url}}" alt="image_your_title" width="360" height="230"/>
+    {%endif%}
 </div>
 </div>
 <script src="{%static 'article/zoom_img.js'%}"></script>  

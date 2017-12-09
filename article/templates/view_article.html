@@ -26,7 +26,9 @@ View article
     <img class="modal-content" id="img01">
     <div id="caption"></div>
     </div>
+    {%if image%}
     <img id="myImg" class="img-responsive img-rounded" src="{{image.url}}" alt="my_image" width="360" height="230" />
+    {%endif%}
 </div>
 </div>       
     <script src="{%static 'article/zoom_img.js'%}"></script>  
