@@ -9,7 +9,7 @@ def article_list(request):
          
     if 'q' in request.GET:
         q = request.GET['q']
-        data = Article.objects.filter(title__icontains=q)
+        data = Article.objects.filter(title__icontains=q).order_by('-date_added')
         categories = ArticleCategory.objects.order_by('title')
     else:
         data = Article.objects.order_by('-date_added')

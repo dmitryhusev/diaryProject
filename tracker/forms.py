@@ -8,5 +8,4 @@ class AssignForm(forms.ModelForm):
 
     class Meta:
         model = Tracker
-        fields = ['title', 'description', 'assignee']
-
+        fields = '__all__'

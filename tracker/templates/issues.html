@@ -6,57 +6,72 @@ Issues
 {%block content%}
 <br>
 <div class="container">
-
 <p>
-    <a href="{%url 'tracker:add_issue'%}" class="btn btn-success btn-sm">Create Issue</a>
-    <form action="" method="GET" class="form-inline">
-            <div class="form-group">
-        <input class="form-control" type="text" name="q" placeholder="search" />
-            </div>
-        <input type="submit" class="btn btn-primary" value="search"/input>
-    </form>
+<a href="{%url 'tracker:add_issue'%}" class="btn btn-primary btn-sm">Create Issue</a>
 </p>
-                            
-<ul class="list-group">
-    {%for issue in issues%}
-        <li class="list-group-item">{{issue}} 
-        <a href="{%url 'tracker:edit_issue' issue.id%}" class="btn btn-primary btn-xs pull-right">View</a>
-        </li>
-    {%endfor%}
-</ul>
 
+<form action="{%url 'tracker:issues'%}" method="GET">
+        <div class="input-group">
+        <input name="q" type="text" class="form-control" placeholder="Find issue">
+        <div class="input-group-btn">
+        <button class="btn btn-default" type="submit">
+        <i class="glyphicon glyphicon-search"></i>
+        </button>
+        </div>
+        </div>
+    </form>
 
+<br>
+<table class="table table-bordered ">
+        <thead class="thead-dark">
+          <tr>
+            <th>Title</th>
+            <th>Assignee</th>
+            <th>Added</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            {%for issue in issues%}
+            <tr>
+            <td style="width:70%">{{issue.title}}</td>
+            <td style="width:15%">{{issue.assignee}}</td>
+            <td style="width:10%">{{issue.date_added |date:'M d, Y'}}</td>
+            <td style="width:5%"><a href="{%url 'tracker:edit_issue' issue.id%}" class="btn btn-primary btn-xs ">View/Edit</a></td>
+            
+          </tr>
+          {%endfor%}
+        </tbody>
+</table>
 
     <div class="text-center">
-            <div class="pagination">
-                    <span class="step-links">
-                            {% if issues.has_other_pages %}
-                            <ul class="pagination">
-                              {% if issues.has_previous %}
-                                <li><a href="?page={{issues.previous_page_number}}">&laquo;</a></li>
-                              {% else %}
-                                <li class="disabled"><span>&laquo;</span></li>
-                              {% endif %}
-                              {% for i in issues.paginator.page_range %}
-                                {% if issues.number == i %}
-                                  <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                                {% else %}
-                                  <li><a href="?page={{ i }}">{{ i }}</a></li>
-                                {% endif %}
-                              {% endfor %}
-                              {% if issues.has_next %}
-                                <li><a href="?page={{issues.next_page_number}}">&raquo;</a></li>
-                              {% else %}
-                                <li class="disabled"><span>&raquo;</span></li>
-                              {% endif %}
-                            </ul>
-                          {% endif %}
-                    </span>
-                </div>
-            </div>
-
-
-
+        <div class="pagination">
+            <span class="step-links">
+                    {% if issues.has_other_pages %}
+                    <ul class="pagination">
+                      {% if issues.has_previous %}
+                        <li><a href="?page={{issues.previous_page_number}}">&laquo;</a></li>
+                      {% else %}
+                        <li class="disabled"><span>&laquo;</span></li>
+                      {% endif %}
+                      {% for i in issues.paginator.page_range %}
+                        {% if issues.number == i %}
+                          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                          <li><a href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                      {% endfor %}
+                      {% if issues.has_next %}
+                        <li><a href="?page={{issues.next_page_number}}">&raquo;</a></li>
+                      {% else %}
+                        <li class="disabled"><span>&raquo;</span></li>
+                      {% endif %}
+                    </ul>
+                  {% endif %}
+            </span>
+        </div>
+    </div>
 </div>
 {%endblock%}
 

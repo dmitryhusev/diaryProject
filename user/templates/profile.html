@@ -4,20 +4,21 @@
 User profile
 {%endblock%}
 {%block content%}
-<div class="container">
- <br>   
+<div class="container"><br>
 <div class="row">
-<div class="col-md-4">
-<div class="well"><h2>User Profile</h2>
-    <h5><span class="label label-info ">User first name:</span> {{user.first_name}} </h5>
-    <h5><span class="label label-info">User last name:</span> {{user.last_name}} </h5> 
-    <h5><span class="label label-info">Email:</span> {{user.email}}</h5> 
-
-<a href="{%url 'users:edit_profile'%}">Edit profile</a>
-
-
-</div>
-</div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            <h4>User profile&nbsp;<span class="glyphicon glyphicon-user"></span></h4>
+            </div>
+            <div class="panel-body">
+                <h5><strong>User first name:</strong> {{user.first_name}} </h5>
+                <h5><strong>User last name:</strong> {{user.last_name}} </h5> 
+                <h5><strong>Email:</strong> {{user.email}}</h5> 
+                <a class="btn btn-primary btn-sm" href="{%url 'users:edit_profile'%}">Edit profile</a>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 {%endblock%}

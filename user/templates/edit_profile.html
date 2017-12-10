@@ -1,25 +1,26 @@
 {%extends 'base.html'%}
 {%load bootstrap3%}
-
 {%block title%}
 Edit profile
 {%endblock%}
 {%block content%}
-<div class="container"></br>
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="well">    
-<form action="{%url 'users:edit_profile'%}" method="post">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    
-<input type="submit" class="btn btn-primary btn-sm" value="submit"/>  
-<a href="{%url 'users:profile'%}" class="btn btn-warning btn-sm">back</a>
-
-</form>
-</div>
-</div>
+<div class="container"><br>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Edit profile&nbsp;<span class="glyphicon glyphicon-user"></span></h4>
+            </div>
+            <div class="panel-body">
+                <form action="{%url 'users:edit_profile'%}" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-primary btn-sm" value="Save"/>  
+                <a href="{%url 'users:profile'%}" class="btn btn-warning btn-sm">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 </div>

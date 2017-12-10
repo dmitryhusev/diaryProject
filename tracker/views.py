@@ -14,7 +14,7 @@ def issues(request):
 
     if 'q' in request.GET:
         q = request.GET['q']
-        data = Tracker.objects.filter(title__icontains=q )
+        data = Tracker.objects.filter(title__icontains=q).order_by('-date_added')
     else:
         data = Tracker.objects.order_by('-date_added')
     paginator = Paginator(data, 10)
