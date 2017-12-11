@@ -12,7 +12,9 @@ Add article
             {% csrf_token %}
             {% bootstrap_form form  %}
             <button class=" btn-sm btn btn-success" name="submit">Add</button>
-            <a href="{%url 'articles:list' %}" class=" btn-sm btn btn-warning">Cancel</a>        
+            <a href="{%url 'articles:list' %}" class=" btn-sm btn btn-warning">Cancel</a>
+        </div>        
     </form>
 </div>
+
 {%endblock%}        
