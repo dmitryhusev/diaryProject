@@ -3,35 +3,15 @@
 
 **Lightweight issues tracker and wiki**
 
-### Getting Started
-To be done. 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
-to be done
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+git clone https://github.com/dmitryhusev/lighttrack.git
 
 ### Installing
-To be done. 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
+Install required modules:
+pip install -r requirements.txt
 
 ## Deployment
-To be done. 
-To add additional notes about how to deploy this on a live system
-
+You can use Heroku, DigitalOcean or Pythonanywhere.
 
 ## License
 
