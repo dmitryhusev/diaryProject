@@ -26,5 +26,5 @@ You can use Heroku, DigitalOcean or Pythonanywhere (easiest way to deploy is usi
 
 ## License
 
-This project is licensed under the MIT [LICENSE](License)
+This project is licensed under the MIT [License](LICENSE)
 
