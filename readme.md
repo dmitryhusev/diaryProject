@@ -12,10 +12,10 @@ Adding or editing issue you can choose assignee and he/she will receive email.
 Python should be installed on your machine 
 
 ### Installing
-*git clone https://github.com/dmitryhusev/lighttrack.git
-*pip install -r requirements.txt
-*This is Django app, so to run it use:
-*python manage.py runserver
+* git clone https://github.com/dmitryhusev/lighttrack.git
+* pip install -r requirements.txt
+* This is Django app, so to run it use:
+* python manage.py runserver
 
 That's it.
 
