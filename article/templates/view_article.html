@@ -12,8 +12,8 @@ View article
 <div class="col-sm-8 ">
     <div class="panel panel-default">
     <br>&nbsp;&nbsp;
-    <a href="{%url 'articles:list' %}" class="btn btn-primary btn-xs">Back</a>
-    <a href="{%url 'articles:edit_article' article_id %}" class="btn btn-primary btn-xs">Edit</a>
+    <a href="{%url 'articles:list' %}" class="btn btn-default btn-sm">Back</a>
+    <a href="{%url 'articles:edit_article' article_id %}" class="btn btn-primary btn-sm">Edit</a>
     <div class="panel-body">
     <p><strong>{{title}}</strong></p>
     {{body}}
@@ -27,7 +27,9 @@ View article
     <div id="caption"></div>
     </div>
     {%if image%}
-    <img id="myImg" class="img-responsive img-rounded" src="{{image.url}}" alt="my_image" width="360" height="230" />
+    <img id="myImg" class="img-responsive img-rounded" src="{{image.url}}" alt="{{image}}" width="360" height="230" />
+    {%else%}
+    Edit article to add image &nbsp;<span class="glyphicon glyphicon-picture"></span>
     {%endif%}
 </div>
 </div>       

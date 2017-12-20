@@ -60,6 +60,14 @@ def view_article(request, article_id):
     return render(request, 'view_article.html', context)
 
 
+def category(request, category_id):
+    category = ArticleCategory.objects.get(id=category_id)
+    category_articles = Article.objects.filter(category=category_id)
+    context = {'title': category.title, 'category_id': category_id, 'articles':category_articles}
+    return render(request, 'category.html', context)
+
+
+
 def add_category(request):
 
     if request.method == 'POST':
@@ -81,11 +89,10 @@ def edit_category(request, category_id):
         form = ArticleCategoryForm(instance = instance, data=request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('articles:list'))
+            return HttpResponseRedirect(reverse('articles:category', args=[category_id]))
     else:
         form = ArticleCategoryForm(instance=instance)
-    category_articles = Article.objects.filter(category=category_id)
-    context = {'form':form, 'category_id':category_id, 'articles':category_articles}
+    context = {'form':form, 'category_id':category_id}
     return render(request, 'edit_category.html', context)
 
 

@@ -26,7 +26,7 @@ class ArticleForm(forms.ModelForm):
 class ArticleCategoryForm(forms.ModelForm):
 
     title = forms.CharField(
-        label='Add category',
+        label='Category name',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Category name'}))
 
     class Meta:

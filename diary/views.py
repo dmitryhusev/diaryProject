@@ -9,6 +9,6 @@ def index(request):
         articles = Article.objects.filter(title__icontains=query)
     else:
         articles = Article.objects.order_by('-date_added')[:15]
-    issues = Tracker.objects.order_by('-date_added')[:10]
+    issues = Tracker.objects.order_by('-date_added')[:15]
     context = {'articles': articles, 'issues': issues}
     return render(request, "index.html", context)

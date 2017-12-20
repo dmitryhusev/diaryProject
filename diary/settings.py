@@ -25,7 +25,7 @@ SECRET_KEY = '@er76-jkys66j#)b3_n961^ha3&cl4ky1#@p1jb9rcajufye4i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dimtri.pythonanywhere.com','127.0.0.1']
+ALLOWED_HOSTS = ['dimtri.pythonanywhere.com','127.0.0.1', 'lwtrack.pythonanywhere.com']
 
 
 # Application definition
@@ -126,6 +126,7 @@ USE_TZ = True
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
