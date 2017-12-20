@@ -7,14 +7,18 @@ Adding issues via RESTful API is implemented as well.
 Adding or editing issue you can choose assignee and he/she will receive email.
 
 ### Prerequisites
-git clone https://github.com/dmitryhusev/lighttrack.git
+Python should be installed on your machine 
 
 ### Installing
-Install required modules:
+git clone https://github.com/dmitryhusev/lighttrack.git
 pip install -r requirements.txt
+This is Django app, so to run it use:
+python manage.py runserver
+
+That's it.
 
 ## Deployment
-You can use Heroku, DigitalOcean or Pythonanywhere (http://lwtrack.pythonanywhere.com/)
+You can use Heroku, DigitalOcean or Pythonanywhere (easiest way to deploy is using Pythonanywhere)
 
 ## License
 
