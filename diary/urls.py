@@ -17,13 +17,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^user/', include('user.urls', namespace = 'users')),
-    url(r'^articles/', include('article.urls', namespace = 'articles')),
-    url(r'^tracker/', include('tracker.urls', namespace = 'tracker')),
-    url(r'^webapi/', include('webapi.urls', namespace = 'webapi')),
-    url(r'^$', index, name = 'index'),
-    
+    url(r'^user/', include('user.urls', namespace='users')),
+    url(r'^articles/', include('article.urls', namespace='articles')),
+    url(r'^tracker/', include('tracker.urls', namespace='tracker')),
+    url(r'^webapi/', include('webapi.urls', namespace='webapi')),
+    url(r'^$', index, name='index'),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

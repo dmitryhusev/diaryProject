@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from . import passw
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,11 @@ SECRET_KEY = '@er76-jkys66j#)b3_n961^ha3&cl4ky1#@p1jb9rcajufye4i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dimtri.pythonanywhere.com','127.0.0.1', 'lwtrack.pythonanywhere.com']
+ALLOWED_HOSTS = [
+    'dimtri.pythonanywhere.com',
+    '127.0.0.1',
+    'lwtrack.pythonanywhere.com',
+    ]
 
 
 # Application definition
@@ -131,12 +136,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'dimtri.gusev@gmail.com'
-EMAIL_HOST_PASSWORD = 'Lvbnhbq21'
+EMAIL_HOST_PASSWORD = passw.PASSW
 
 LOGIN_URL = '/user/login/'
 LOGIN_REDIRECT_URL = '/'

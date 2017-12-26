@@ -2,8 +2,8 @@ from django.shortcuts import render
 from article.models import Article
 from tracker.models import Tracker
 
-def index(request):
 
+def index(request):
     query = request.GET.get('q')
     if query:
         articles = Article.objects.filter(title__icontains=query)

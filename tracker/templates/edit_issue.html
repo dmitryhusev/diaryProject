@@ -10,7 +10,7 @@ Edit issue
 <form action="{%url 'tracker:edit_issue' issue_id%}" method='post'>
     {%csrf_token%}
     {% bootstrap_form form %}
-    <label for="sel1">Assigned: <label id = 'user' > </label></label>
+    <label for="sel1">Select assignee: <label id = 'user' > </label></label>
     
     <select class="form-control" id="select" style="width: auto;">
             <option class="input-sm">-Select-</option>
@@ -20,7 +20,7 @@ Edit issue
     </select><br>
 
     <button class="btn btn-primary btn-sm" name="submit">Save</button>
-    <a href="{%url 'tracker:issues'%}" class="btn btn-warning btn-sm" name="exit">Cancel</a>
+    <a href="{%url 'tracker:issues'%}" class="btn btn-warning btn-sm" name="exit">Exit</a>
 </form>
 
     <script>
