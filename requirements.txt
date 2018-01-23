@@ -1,3 +1,4 @@
 django==1.11
 djangorestframework
 django-bootstrap3
+django-widget-tweaks
