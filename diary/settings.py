@@ -147,3 +147,9 @@ EMAIL_HOST_PASSWORD = 'Lvbnhbq21'
 
 LOGIN_URL = '/user/login/'
 LOGIN_REDIRECT_URL = '/'
+
+
+#Heroku db setings
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
