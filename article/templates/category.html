@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+{%load bootstrap3%}
+{%load staticfiles%}
+{%block title%}
+Category
+{%endblock%}
+
+{%block content%}
+<div class="container"><br/>
+<div class="row">
+<div class="col-md-4">
+        
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Category</h4>
+
+    </div>
+    <div class="panel-body">
+            <h5><strong>Category name:</strong> {{title}}</h5>
+            <a href="{%url 'articles:list'%}" class="btn btn-default btn-sm">Back</a>
+            <a href="{%url 'articles:edit_category' category_id%}" class="btn btn-primary btn-sm">Edit</a>
+        
+    </div>
+</div>
+    
+</div>
+<div class="col-md-8">
+        <div class="well">
+        <h4>Category articles</h4>      
+    <br>
+    
+    
+    <ul class="list-group">
+        {%if articles%}
+        {%for article in articles%}
+        <li class="list-group-item"><strong>{{article.title}}</strong><br>
+        {{article.body|truncatewords:50}}<br>
+        <span class="label label-info pull-right">{{article.category}}</span></br>
+        <a href="{%url 'articles:view_article' article.id%}" class="btn btn-primary btn-xs">View</a>
+        <button class="btn btn-warning btn-xs" onclick="deleteItem({{article.id}})">Delete</button>               
+        </li>
+        {%endfor%}
+        {%else%}
+        Category does not have any articles
+        {%endif%}
+    </ul>
+    
+    </div>
+    </div>
+</div>
+</div>
+<script src="{%static 'article/delete_article.js'%}"></script> 
+
+{%endblock%}

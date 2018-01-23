@@ -1,70 +1,65 @@
 {%extends 'base.html'%}
 {%load bootstrap3%}
 {%block title%}
-Issue tracker and wiki
+Home
 {%endblock%}
 {%block content%}
 
 <div class="container">
 <h2>Dashboard</h2>
-    <div class="row">
-        <div class="col-sm-8" >
-
-                    <div class="panel panel-default">
-                            <div class="panel-body">
-                                    
-                            
-<table class="table table-striped ">
+<div class="row">
+<div class="col-sm-8" >
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table class="table table-striped ">
         <thead>
           <tr >
             <th>Recent issues</th>
-            <th style="text-align:center">Added</th>
+            <th style="text-align:right">Added</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-                {%for issue in issues%}
-                
+            {%for issue in issues%}
             <td><a href="{%url 'tracker:edit_issue' issue.id%}">{{issue.title | truncatewords:15}}</a>
             </td>
             <td>
-                <span class="label label-primary pull-right">{{issue.date_added|date:'M d, Y H:i'}}
-                </span>
+            <span class="label label-primary pull-right">{{issue.date_added|date:'M d, Y H:i'}}
+            </span>
+            </td>
+          </tr>
+            {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+        
+<div class="col-sm-4" >
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table class="table table-striped ">
+        <thead>
+          <tr >
+          <th>Recent articles</th>
+          <th style="text-align:right">Added</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {%for article in articles%}
+            <td><a href="{%url 'articles:view_article' article.id%}">{{article.title | slice:':30'}}</a>
+            </td>
+            <td>
+            <span class="label label-primary pull-right">{{article.date_added|date:'M d, Y H:i'}}
+            </span>
             </td>
           </tr>
           {%endfor%}
         </tbody>
-</table>
-</div>
-</div>
-</div>
-        
-<div class="col-sm-4" >
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <table class="table table-striped ">
-                <thead>
-                  <tr >
-                    <th>Recent articles</th>
-                    <th style="text-align:center">Added</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                        {%for article in articles%}
-                        
-                    <td><a href="{%url 'articles:view_article' article.id%}">{{article.title | slice:':30'}}</a>
-                    </td>
-                    <td>
-                        <span class="label label-primary pull-right">{{article.date_added|date:'M d, Y H:i'}}
-                        </span>
-                    </td>
-                  </tr>
-                  {%endfor%}
-                </tbody>
-            </table> 
-        </div>
+      </table> 
     </div>
+  </div>
 </div>
 </div>
 

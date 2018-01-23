@@ -20,7 +20,7 @@ Edit article
     <a href="{%url 'articles:list' %}" class="btn btn-warning btn-sm">Cancel</a> 
     </form>
 </div>
-
+<br>
 <div class="col-sm-4 ">
     <div id="myModal" class="modal">
     <span class="close">&times;</span>
@@ -28,7 +28,7 @@ Edit article
     <div id="caption"></div>
     </div>
     {%if art_edit.image%}
-    <img id="myImg" class="img-responsive img-rounded" src="{{art_edit.image.url}}" alt="image_your_title" width="360" height="230"/>
+    <img id="myImg" class="img-responsive img-rounded" src="{{art_edit.image.url}}" alt="{{art_edit.image}}" width="360" height="230"/>
     {%endif%}
 </div>
 </div>
@@ -36,4 +36,3 @@ Edit article
 <link rel="stylesheet" href="{%static 'article/zoom_img.css'%}">
 </div>
 {%endblock%}
-        

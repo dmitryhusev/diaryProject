@@ -10,6 +10,7 @@ Issues
 <a href="{%url 'tracker:add_issue'%}" class="btn btn-primary btn-sm">Create Issue</a>
 </p>
 
+
 <form action="{%url 'tracker:issues'%}" method="GET">
         <div class="input-group">
         <input name="q" type="text" class="form-control" placeholder="Find issue">
@@ -19,18 +20,17 @@ Issues
         </button>
         </div>
         </div>
-    </form>
-
+</form>
 <br>
 <table class="table table-bordered ">
         <thead class="thead-dark">
           <tr>
-            <th>Title</th>
+            <th style="text-align:left">Title</th>
             <th>Assignee</th>
             <th>Added</th>
             <th>Action</th>
-
-          </tr>
+            <style>th{text-align:center}</style>
+        </tr>
         </thead>
         <tbody>
             {%for issue in issues%}
@@ -45,33 +45,33 @@ Issues
         </tbody>
 </table>
 
-    <div class="text-center">
-        <div class="pagination">
-            <span class="step-links">
-                    {% if issues.has_other_pages %}
-                    <ul class="pagination">
-                      {% if issues.has_previous %}
-                        <li><a href="?page={{issues.previous_page_number}}">&laquo;</a></li>
-                      {% else %}
-                        <li class="disabled"><span>&laquo;</span></li>
-                      {% endif %}
-                      {% for i in issues.paginator.page_range %}
-                        {% if issues.number == i %}
-                          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                        {% else %}
-                          <li><a href="?page={{ i }}">{{ i }}</a></li>
-                        {% endif %}
-                      {% endfor %}
-                      {% if issues.has_next %}
-                        <li><a href="?page={{issues.next_page_number}}">&raquo;</a></li>
-                      {% else %}
-                        <li class="disabled"><span>&raquo;</span></li>
-                      {% endif %}
-                    </ul>
-                  {% endif %}
-            </span>
-        </div>
+<div class="text-center">
+  <div class="pagination">
+    <span class="step-links">
+      {% if issues.has_other_pages %}
+        <ul class="pagination">
+          {% if issues.has_previous %}
+            <li><a href="?page={{issues.previous_page_number}}">&laquo;</a></li>
+          {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+          {% for i in issues.paginator.page_range %}
+            {% if issues.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if issues.has_next %}
+            <li><a href="?page={{issues.next_page_number}}">&raquo;</a></li>
+          {% else %}
+            <li class="disabled"><span>&raquo;</span></li>
+          {% endif %}
+        </ul>
+        {% endif %}
+    </span>
     </div>
+  </div>
 </div>
 {%endblock%}
 
