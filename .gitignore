@@ -1,0 +1,12 @@
+db.sqlite3
+diary/__pycache__/
+user/__pycache__/
+webapi/__pycache__/
+webapi/migrations/__pycache__/
+user/migrations/__pycache__/
+tracker/__pycache__/
+tracker/migrations/__pycache__/
+.vscode/
+article/__pycache__/
+article/migrations/__pycache__/
+media/

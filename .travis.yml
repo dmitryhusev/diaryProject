@@ -14,6 +14,6 @@ deploy:
     secure: "2e1d6006-c84e-4b34-be67-3f90cbadf73a"
   app: lwtrack
   run:
-    python manage.py makemigrations
-    python manage.py migrate
+    - python manage.py makemigrations
+    - python manage.py migrate
    
