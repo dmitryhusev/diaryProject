@@ -27,12 +27,7 @@ SECRET_KEY = '@er76-jkys66j#)b3_n961^ha3&cl4ky1#@p1jb9rcajufye4i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'dimtri.pythonanywhere.com',
-    '127.0.0.1',
-    'lwtrack.pythonanywhere.com',
-    'pepathepig.herokuapp.com',
-    ]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
