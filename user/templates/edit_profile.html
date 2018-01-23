@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
 {%load bootstrap3%}
+{% load widget_tweaks %}
 {%block title%}
 Edit profile
 {%endblock%}
@@ -12,7 +13,7 @@ Edit profile
                 <h4>Edit profile&nbsp;<span class="glyphicon glyphicon-user"></span></h4>
             </div>
             <div class="panel-body">
-                <form action="{%url 'users:edit_profile'%}" method="post">
+                <form action="{%url 'users:edit_profile'%}" method="post" novalidate>
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <input type="submit" class="btn btn-primary btn-sm" value="Save"/>  
@@ -23,5 +24,10 @@ Edit profile
     </div>
 </div>
 
+
+
+
 </div>
 {%endblock%}
+
+

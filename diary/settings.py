@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'tracker',
     'webapi',
     'rest_framework',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

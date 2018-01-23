@@ -40,7 +40,7 @@ def edit_profile(request):
         form = ProfileForm(instance=current_user, data=request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('users: profile'))
+            return HttpResponseRedirect(reverse('users:profile'))
     else:
         form = ProfileForm(instance=current_user)
     return render(request, 'edit_profile.html', {'form': form})
