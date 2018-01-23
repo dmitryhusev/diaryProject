@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'webapi',
     'rest_framework',
     'widget_tweaks',
+    'dj_database_url'
+
 ]
 
 MIDDLEWARE = [

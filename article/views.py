@@ -44,7 +44,7 @@ def edit_article(request, article_id):
             )
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('articles: list'))
+            return HttpResponseRedirect(reverse('articles:list'))
     context = {'form': form, 'art_edit': art_edit}
     return render(request, 'edit_article.html', context)
 
@@ -52,7 +52,7 @@ def edit_article(request, article_id):
 def delete_article(request, article_id):
     art_edit = Article.objects.get(id=article_id)
     art_edit.delete()
-    return HttpResponseRedirect(reverse('articles: list'))
+    return HttpResponseRedirect(reverse('articles:list'))
 
 
 def view_article(request, article_id):
@@ -84,7 +84,7 @@ def add_category(request):
             instance = form.save(commit=False)
             instance.title = instance.title.capitalize()
             instance.save()
-        return HttpResponseRedirect(reverse('articles: list'))
+        return HttpResponseRedirect(reverse('articles:list'))
     else:
         form = ArticleCategoryForm()
     context = {'form': form}
@@ -97,7 +97,7 @@ def edit_category(request, category_id):
         form = ArticleCategoryForm(instance=instance, data=request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('articles: category', args=[category_id]))
+            return HttpResponseRedirect(reverse('articles:category', args=[category_id]))
     else:
         form = ArticleCategoryForm(instance=instance)
     context = {'form': form, 'category_id': category_id}
@@ -108,4 +108,4 @@ def delete_category(request, category_id):
 
     cat_delete = ArticleCategory.objects.get(id=category_id)
     cat_delete.delete()
-    return HttpResponseRedirect(reverse('articles: list'))
+    return HttpResponseRedirect(reverse('articles:list'))
