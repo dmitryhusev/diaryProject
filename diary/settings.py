@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     'dimtri.pythonanywhere.com',
     '127.0.0.1',
     'lwtrack.pythonanywhere.com',
+    'pepathepig.herokuapp.com',
     ]
 
 
