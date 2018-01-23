@@ -12,6 +12,5 @@ deploy:
   provider: heroku
   api_key:
     secure: "2e1d6006-c84e-4b34-be67-3f90cbadf73a"
-  app: pepathepig
-  run:
-    - python manage.py migrate
+  app: lwtrack
+  run: python manage.py migrate
