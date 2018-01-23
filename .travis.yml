@@ -1,11 +1,11 @@
 language: python
 python:
-    - "3.6.4"
+    "3.6.4"
 install:
-  - pip install -r requirements.txt
+    pip install -r requirements.txt
 # command to run tests
 script:
-  - python manage.py test
+    python manage.py test
 
 
 deploy:
@@ -13,5 +13,7 @@ deploy:
   api_key:
     secure: "2e1d6006-c84e-4b34-be67-3f90cbadf73a"
   app: lwtrack
-  run: - python manage.py makemigrations
-       - python manage.py migrate
+  run:
+    python manage.py makemigrations
+    python manage.py migrate
+   
