@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-from . import passw
+#from . import passw
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -142,7 +142,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'dimtri.gusev@gmail.com'
-EMAIL_HOST_PASSWORD = passw.PASSW
+EMAIL_HOST_PASSWORD = 'Lvbnhbq21'
 
 LOGIN_URL = '/user/login/'
 LOGIN_REDIRECT_URL = '/'
