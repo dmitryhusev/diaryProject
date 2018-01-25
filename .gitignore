@@ -1,5 +1,6 @@
 db.sqlite3
 diary/__pycache__/
+diary/passw.py
 user/__pycache__/
 webapi/__pycache__/
 webapi/migrations/__pycache__/
