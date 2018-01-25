@@ -10,7 +10,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure:
+    secure: $TOKEN
   app: stage-lwtrack
   run:
     - python manage.py makemigrations
