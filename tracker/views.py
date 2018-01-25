@@ -46,7 +46,7 @@ def add_issue(request):
                 '{}{}{}'.format(ticket_name, '\n', message),
                 settings.EMAIL_HOST_USER,
                 recipient,
-                fail_silently=False)
+                fail_silently=True)
             return HttpResponseRedirect(reverse('tracker:issues'))
     context = {'form': form, 'users': user_list, }
     return render(request, 'add_issue.html', context)
@@ -71,7 +71,7 @@ def edit_issue(request, issue_id):
                 title,
                 '{}{}{}'.format(ticket_name, '\n', message),
                 settings.EMAIL_HOST_USER, recipient,
-                fail_silently=False)
+                fail_silently=True)
             return HttpResponseRedirect(reverse('tracker:edit_issue', args=[issue_id]))
     context = {'form': form, 'users': user_list, 'issue_id': issue_id}
     return render(request, 'edit_issue.html', context)
