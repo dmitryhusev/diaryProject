@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-#from . import passw
+from . import passw
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -139,7 +139,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'dimtri.gusev@gmail.com'
-EMAIL_HOST_PASSWORD = 'Lvbnhbq21'
+EMAIL_HOST_PASSWORD = passw.PASSW
 
 LOGIN_URL = '/user/login/'
 LOGIN_REDIRECT_URL = '/'
