@@ -9,7 +9,8 @@ from django.contrib.auth.decorators import login_required
 def article_list(request):
     if 'q' in request.GET:
         q = request.GET['q']
-        data = Article.objects.filter(title__icontains=q).order_by('-date_added')
+        data = Article.objects.filter(
+            title__icontains=q).order_by('-date_added')
         categories = ArticleCategory.objects.order_by('title')
     else:
         data = Article.objects.order_by('-date_added')
@@ -97,7 +98,9 @@ def edit_category(request, category_id):
         form = ArticleCategoryForm(instance=instance, data=request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('articles:category', args=[category_id]))
+            return HttpResponseRedirect(reverse(
+                'articles:category',
+                args=[category_id]))
     else:
         form = ArticleCategoryForm(instance=instance)
     context = {'form': form, 'category_id': category_id}

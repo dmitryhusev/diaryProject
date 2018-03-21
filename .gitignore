@@ -10,3 +10,4 @@ tracker/migrations/__pycache__/
 article/__pycache__/
 article/migrations/__pycache__/
 media/
+htmlcov/
