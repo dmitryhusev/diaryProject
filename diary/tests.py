@@ -24,4 +24,3 @@ class TestView(TestCase):
         title = 'django</a>'
         self.assertIn(title, html.replace('\n', ''))
 
-
