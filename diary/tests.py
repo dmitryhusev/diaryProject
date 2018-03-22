@@ -23,3 +23,5 @@ class TestView(TestCase):
         html = response.content.decode('utf-8')
         title = 'django</a>'
         self.assertIn(title, html.replace('\n', ''))
+
+
