@@ -8,7 +8,7 @@ Adding issues via RESTful API is implemented as well.
 
 Adding or editing issue you can choose assignee and he/she will receive email.
 
-Try it here: http://lwtrack.pythonanywhere.com/
+Try it here: https://prod-lwtrack.herokuapp.com/
 
 ### Prerequisites
 Python should be installed on your machine 
@@ -27,4 +27,3 @@ You can use Heroku, DigitalOcean or Pythonanywhere (easiest way to deploy is usi
 ## License
 
 This project is licensed under the MIT [License](LICENSE)
-
