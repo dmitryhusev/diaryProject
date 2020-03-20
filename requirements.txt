@@ -1,5 +1,5 @@
-django==2.2.10
-djangorestframework
+django==1.11
+djangorestframework==3.8.0
 django-bootstrap3
 django-widget-tweaks
 coverage
